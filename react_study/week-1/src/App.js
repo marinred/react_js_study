@@ -14,4 +14,4 @@ function App() {
 
 export default App;
 
-// 절대경로 지정(root 경)
+// 절대경로 지정(root 경로)
