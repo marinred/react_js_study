@@ -1,38 +1,31 @@
-// import "./App.css";
-import "App.css"; // 절대경로 설정후... root/jsconfig.json
-// ./ 상대경로
-
-// im: 안쪽 + port
-// ex: 바깥쪽 + port
-
-// 이 파일이 우리의 PlayGround!
-// function은 앞에 무조건 대문자로 시작, 폴더는 camel로 진행
+import React from "react";
 function App() {
-  // JavaScript를 쓸 수 있는 영역
-  const x = 1;
-  function testFunc() {}
-  // 여기까지
+  // <---- 자바스크립트 영역 ---->
+  function onClickButtonHandler() {
+    alert("클릭");
+  }
+  // 또는
+  const onClickButtonHandler2 = () => {
+    alert("클릭");
+  };
+
   return (
-    // JSX(Javascript + XML - HTML)
-    // {} << Javascript
-    // {testFunc}
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        ></a>
-      </header>
+    /* <---- HTML/JSX 영역  ---->*/
+    <div
+      style={{
+        height: "100vh",
+        display: " flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      {/* 이곳에 퀴즈를 위한 html 코드를 작성해 주세요 */}
+      <span>이것은 내가 만든 App Componet 입니다.</span>
+      <br></br>
+      <button onClick={onClickButtonHandler}>클릭!</button>
     </div>
   );
 }
 
-export default App; // 내보낸다.
-
-// 절대경로 지정(root 경로)
+export default App;
