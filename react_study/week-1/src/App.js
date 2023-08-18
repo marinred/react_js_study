@@ -1,19 +1,11 @@
 import React from "react";
 
-function Son() {
-  return <div>자식 컴포넌트</div>;
-}
+export default function App() {
+  const a = 3;
+  const b = 7;
 
-function Mother() {
-  return <Son />;
-}
+  const testArr = [1, 2, 3];
 
-function Grand() {
-  return <Mother />;
+  // return <div>안녕하세요 {a + b} 입니다.</div>; // 변수 사용
+  return <div>Hello {testArr}</div>;
 }
-
-function App() {
-  return <Grand />;
-}
-
-export default App;
