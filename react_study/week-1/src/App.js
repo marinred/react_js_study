@@ -1,31 +1,21 @@
 import React from "react";
-function App() {
-  // <---- 자바스크립트 영역 ---->
-  function onClickButtonHandler() {
-    alert("클릭");
-  }
-  // 또는
-  const onClickButtonHandler2 = () => {
-    alert("클릭");
-  };
 
+// 자식 컴포넌트
+function Child() {
+  return <div>자식 컴포넌트</div>;
+}
+
+function App() {
+  // 부모 컴포넌트 (2개 이상 할 때)
   return (
-    /* <---- HTML/JSX 영역  ---->*/
-    <div
-      style={{
-        height: "100vh",
-        display: " flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      {/* 이곳에 퀴즈를 위한 html 코드를 작성해 주세요 */}
-      <span>이것은 내가 만든 App Componet 입니다.</span>
-      <br></br>
-      <button onClick={onClickButtonHandler}>클릭!</button>
-    </div>
+    <>
+      <Child />
+      <Child />
+      <Child />
+      <Child />
+    </>
   );
 }
+// 2개 이상일 떄는  () 안에 넣기
 
 export default App;
