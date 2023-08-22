@@ -1,12 +1,23 @@
-import React from "react";
-import Child from "Child";
+import { useState } from "react";
+import "./App.css";
 
 function App() {
-  const name = "test";
+  const [fruit, setFruit] = useState("");
+
   return (
-    <Child age={21} name={name}>
-      이름
-    </Child>
+    <div>
+      과일:{" "}
+      <input
+        value={fruit}
+        onChange={function (event) {
+          // console.log("event", event.target.value);
+          setFruit(event.target.value); // 타이핑하는 것들이 value로 들어온다.
+        }}
+      />
+      <br />
+      <br />
+      {fruit}
+    </div>
   );
 }
 
