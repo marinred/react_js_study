@@ -1,47 +1,25 @@
 import React, { useState } from "react";
 
 function App() {
-  const [id, setId] = useState("");
-  const [password, setPassword] = useState("");
-
-  // onChagne 확인
-  console.log("id", id);
-  console.log("password", password);
-
-  // id 필드 변경될 경우
-  const onIdChangeHandler = (event) => {
-    setId(event.target.value);
-  };
-  // pw 필드 변경될 경우
-  const onPwChangeHandler = (event) => {
-    setPassword(event.target.value);
-  };
+  cosnt[(input, setInput)] = useState("");
+  // 리액트는 화면을 랜더링할지를 state의 변화에 따라 결정한다.
+  // 단순 변수는 무시한다.
+  let count = 0;
   return (
     <div>
-      <div>
-        아이디:{" "}
-        <input type="text" value={id} onChange={onIdChangeHandler}></input>
-      </div>
-      <div>
-        비밀번호:{" "}
-        <input
-          type="password"
-          value={password}
-          onChange={onPwChangeHandler}
-        ></input>
-      </div>
+      <input
+        value={input}
+        onChange={(event) => {
+          setInput(event.target.value);
+        }}
+      />
+      {input}
       <button
         onClick={() => {
-          alert(
-            `고객님이 입력하신 아이디는 ${id}이며, 비밀번호는 ${password}입니다.`
-          );
-          // 초기화
-          setId("");
-          setPassword("");
+          count++;
+          console.log(`count는 ${count}입니다.`);
         }}
-      >
-        로그인
-      </button>
+      ></button>
     </div>
   );
 }
