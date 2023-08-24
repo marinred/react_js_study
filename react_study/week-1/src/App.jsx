@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 function App() {
-  cosnt[(input, setInput)] = useState("");
+  const [input, setInput] = useState("");
   // 리액트는 화면을 랜더링할지를 state의 변화에 따라 결정한다.
   // 단순 변수는 무시한다.
   let count = 0;
