@@ -25,7 +25,7 @@ const App = () => {
   const ageChangeHandler = (event) => {
     setAge(event.target.value);
   };
-
+  // 추가 버튼 클릭
   const clickAddButtonHandler = () => {
     // 1. 새로운 형태의 { id: 1, age: 30, name: "송중기" } 를 만든다.
     // 2. 배열에 더한다.
@@ -39,6 +39,17 @@ const App = () => {
     // state가 바뀌었다는 것을 인식하기 위해
     setUsers([...users, addArr]);
   };
+  // 삭제 버튼 클릭
+  const clickDeleteButtonHandler = (id) => {
+    // alert(id); // id 출력됨
+    // users.fillter(user => user.id !== 어떤 값)
+    // const newUsers = users.filter((user) => user.id !== id);
+    const newUsers = users.filter(function (user) {
+      return user.id !== id;
+    });
+    setUsers(newUsers);
+  };
+
   // onChange={nameChangeHandler(event) 이렇게하면 실행이 화면 전환시
   // map 함수를 쓸 떄 반복적으로 return 하는 부분은 key태그를 붙여줘야함
   // virtual DOM 설명 때
@@ -65,9 +76,11 @@ const App = () => {
       <div className="app-style">
         {users.map(function (item) {
           return (
-            <div key={item.id} className="component-style">
-              {item.age} - {item.name}
-            </div>
+            <User
+              key={item.id}
+              item={item}
+              deleteFunction={clickDeleteButtonHandler}
+            />
           );
         })}
         {/* <div className="component-style"> // 하드 코딩의 형태
@@ -83,6 +96,15 @@ const App = () => {
         {users[3].age} - {users[3].name}
       </div> */}
       </div>
+    </div>
+  );
+};
+
+const User = ({ item, deleteFunction }) => {
+  return (
+    <div key={item.id} className="component-style">
+      {item.age} - {item.name}
+      <button onClick={() => deleteFunction(item.id)}>x</button>
     </div>
   );
 };
