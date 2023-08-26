@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
+import Button from "./component/Button";
+import User from "./component/User";
 
 const App = () => {
   // const users = [
@@ -71,7 +73,7 @@ const App = () => {
         <input vlaue={age} onChange={ageChangeHandler}></input>
         {age}
         <br />
-        <button onClick={clickAddButtonHandler}>추가</button>
+        <Button clcickAddButtonHandler={clickAddButtonHandler}>추가</Button>
       </div>
       <div className="app-style">
         {users.map(function (item) {
@@ -100,13 +102,18 @@ const App = () => {
   );
 };
 
-const User = ({ item, deleteFunction }) => {
-  return (
-    <div key={item.id} className="component-style">
-      {item.age} - {item.name}
-      <button onClick={() => deleteFunction(item.id)}>x</button>
-    </div>
-  );
-};
+// 별도 분리 Button.jsx로 옮김
+// const Button = ({ clickAddButtonHandler, children }) => {
+//   return <button onClick={clickAddButtonHandler}>{children}</button>;
+// };
+
+// const User = ({ item, deleteFunction }) => {
+//   return (
+//     <div key={item.id} className="component-style">
+//       {item.age} - {item.name}
+//       <button onClick={() => deleteFunction(item.id)}>x</button>
+//     </div>
+//   );
+// };
 
 export default App;
